@@ -6,6 +6,7 @@
 #include <lua/lua.h>
 #include <lua/lauxlib.h>
 #include <lua/lualib.h>
+#include <duktape/duktape.h>
 
 void Init(void);
 void Shut_Down(int return_code);
@@ -38,6 +39,10 @@ double old_time;
 
 int main(void)
 {
+  duk_context *ctx = duk_create_heap_default();
+  duk_eval_string(ctx, "print('running javascript code...');");
+  duk_destroy_heap(ctx);
+
   lua_State *L;
   L = luaL_newstate();
   luaL_openlibs(L);

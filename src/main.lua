@@ -1,1 +1,1 @@
-print('main.lua  asdfasd fasd fasdf running...')
+print('main.lua running...')

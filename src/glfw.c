@@ -41,12 +41,12 @@ int main(void)
   lua_State *L;
   L = luaL_newstate();
   luaL_openlibs(L);
-  if (luaL_dofile(L, "main.lua")) {
+  if (luaL_dofile(L, "src/main.lua")) {
       printf("Could not load file: %s\n", lua_tostring(L, -1));
       lua_close(L);
-      return 0;
+      // return 0;
   }
-  // lua_pcall(L, number_of_args, number_of_returns, errfunc_idx);
+  // // lua_pcall(L, number_of_args, number_of_returns, errfunc_idx);
   lua_close(L);
 
   Init();
